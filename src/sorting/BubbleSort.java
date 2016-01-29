@@ -8,22 +8,27 @@ public class BubbleSort {
 
 	public static void main(String[] args) {
 
-		int [] intArray={1,4,2,6,5,3,2};
+		int [] intArray={1,4,1,34,5,2,6,5,3,2};
+		boolean sorted=true;
 
-		//for each i in array 
-		for(int i=0; i< intArray.length; i++){
+
+		for(int j=0; j< intArray.length; j++){
 			
-			//check if intArray[i] is bigger than any of the elements
-			//to the right of i. If it is, swap. Now use the swapped 
-			//value and figure out if its bigger than the remaining values
-			// not compared against. Repeat.
-			for(int m=i; m< intArray.length; m++){
-				if(m!=i && intArray[i]>intArray[m]){
-					int temp=intArray[m];
-					intArray[m]=intArray[i];
+			//default to already sorted
+			sorted=true;
+			
+			//for each i in array check i+1
+			for(int i=0; i< intArray.length-1; i++){
+				if(intArray[i]>intArray[i+1]){
+					sorted=false; //make it not sorted
+					int temp=intArray[i+1];
+					intArray[i+1]=intArray[i];
 					intArray[i]=temp;
 				}
 			}
+
+			//exit if sorted
+			if(sorted) break;
 		}
 
 		System.out.println("Sorted array:");
