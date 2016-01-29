@@ -1,5 +1,9 @@
 package sorting;
 
+/**
+ * @author Kavita Ganesan 
+ * http://www.kavita-ganesan.com
+ */
 public class BubbleSort {
 
 	public static void main(String[] args) {
