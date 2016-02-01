@@ -1,4 +1,3 @@
-package duplicate;
 
 /**
  * Remove duplicates from a linked list.

@@ -1,4 +1,4 @@
-package recursion;
+
 
 /**
  * Find factorial of a number recursively.

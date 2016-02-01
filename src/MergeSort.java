@@ -4,7 +4,7 @@
  *
  * If you need more classes, simply define them inline.
  */
-package sorting;
+
 
 class MergeSort {
 
