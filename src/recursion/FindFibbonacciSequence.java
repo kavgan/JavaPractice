@@ -1,7 +1,7 @@
 package recursion;
 
 /**
- * Find a fibbonacci sequence using recursion and no recursion
+ * Find a fibbonacci sequence using recursion, no recursion and recursion with memory
  * @author Kavita
  *
  */
@@ -23,6 +23,16 @@ public class FindFibbonacciSequence {
 			System.out.print(" ");
 		}
 		
+		System.out.print("\n\n=========Using Recursion with Memory========\n");
+		
+		//recursion
+		int memory[]=new int[30];
+		for(int i=0; i<30; i++){
+			fibbonacci(i,memory);
+			System.out.print(memory[i]);	
+			System.out.print(" ");
+		}
+		
 		
 		//no recursion
 		System.out.print("\n\n=========Using Loops========\n");
@@ -30,9 +40,8 @@ public class FindFibbonacciSequence {
 		int prevMinus2=0;
 		
 		for(int i=0; i<30; i++){
-			
+	
 			int fib=0;
-			
 			if(i<=1){
 				fib=i;
 				
@@ -60,6 +69,23 @@ public class FindFibbonacciSequence {
 			return n;
 		
 		return fibbonacci(n-1)+ fibbonacci(n-2);
+	}
+	
+	
+	public int fibbonacci(int n, int [] mem){
+		
+		if(n<=1){
+			mem[n]=n;
+			return mem[n];
+		}
+		
+		//only recurse when the value in the memory cell is empty
+		if(mem[n]==0){
+			int m=fibbonacci(n-1,mem)+ fibbonacci(n-2,mem);
+			mem[n]=m;
+		}
+		
+		return mem[n];
 	}
 
 }
